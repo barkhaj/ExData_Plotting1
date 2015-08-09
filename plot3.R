@@ -10,6 +10,7 @@ unzip(destFile,overwrite=TRUE)
 dataFile<-"household_power_consumption.txt"
 hpcData<-read.table(dataFile,sep=";",header=TRUE,stringsAsFactors = FALSE,na.strings = "?")
 
+library(sqldf)
 #Subset data 
 hpc<-sqldf("select Date ,Time, Global_active_power, Global_reactive_power, Voltage, Global_intensity, Sub_metering_1, Sub_metering_2,Sub_metering_3 from hpcData where Date='1/2/2007' OR Date='2/2/2007'")
 
